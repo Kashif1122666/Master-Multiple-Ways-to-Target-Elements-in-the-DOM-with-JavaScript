@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The DOM: More Ways to Target Elements</title>
+    <style>
+      body{
+        font-family: Arial,sans-serif;
+        text-align: center;
+        margin: 50px;
+      }
+      ul{
+        list-style-type: none;
+        padding: 0;
+      }
+
+      li{
+        background-color: #f4f4f4;
+        margin: 10px;
+        padding: 15px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .highlight{
+        background-color: #222;
+        color: white;
+      }
+    </style>
+</head>
+<body>
+    <h1>More Ways to Target Elements</h1>
+    <ul id="myList">
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <button onclick="highLightFirst()">HighLight First</button>
+    <button onclick="highLightNext()">HighLight Next</button>
+    <button onclick="highLightLast()">HighLight Last</button>
+  
+    <script>
+        var list = document.getElementById('myList');
+        var firstItem = list.firstElementChild;
+        var lastItem = list.lastElementChild;
+        var current = firstItem;
+       
+        function highLightFirst(){
+            current.style.background = '';
+            current = firstItem;
+            current.style.background = '#222'
+            current.style.color = 'white'
+        }
+
+        function highLightLast(){
+            current.style.background = '';
+            current = lastItem;
+            current.style.background = '#222'
+            current.style.color = 'white'
+        }
+
+        function highLightNext(){
+            current.style.background = '';
+            if (current.nextElementSibling) {
+                current = current.nextElementSibling;
+            }
+            current.style.background = '#222';
+            current.style.color = 'white'
+        }
+
+
+    </script>
+
+</body>
+</html>
